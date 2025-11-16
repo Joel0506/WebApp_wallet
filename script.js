@@ -1,5 +1,4 @@
 // script.js
-const API_URL = "http://localhost:3000";
 const tabLogin = document.getElementById('tab-login');
 const tabReg = document.getElementById('tab-register');
 const loginForm = document.getElementById('loginForm');
@@ -67,7 +66,7 @@ document.getElementById('showPass').addEventListener('change', function () {
 function sendOTP() {
   const email = document.getElementById('reg_email').value;
 
-  fetch(`${API_URL}/send-otp`, {
+  fetch("https://webapp-wallet-backend.onrender.com/api/send-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email })
@@ -87,7 +86,7 @@ function verifyOTP() {
   const email = document.getElementById("email").value;
   const otp = document.getElementById("otp").value;
 
-  fetch(`${API_URL}/verify-otp`, {
+  fetch("https://webapp-wallet-backend.onrender.com/api//verify-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, otp })
@@ -101,4 +100,5 @@ function verifyOTP() {
     }
   })
   .catch(err => console.error(err));
+
 }
